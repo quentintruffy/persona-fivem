@@ -4,6 +4,13 @@ version: v1.0.0
 description: PersonaCore Description
 
 tasks:
+  # Download default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources
+
   # Download default server.cfg for RedM
   - action: download_file
     url: https://raw.githubusercontent.com/quentintruffy/persona-fivem/refs/heads/master/server.cfg
