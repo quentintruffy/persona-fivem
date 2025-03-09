@@ -1,0 +1,10 @@
+name: Persona
+author: PersonaCore
+version: v1.0.0
+description: PersonaCore Description
+
+tasks:
+  # Download default server.cfg for RedM
+  - action: download_file
+    url: https://raw.githubusercontent.com/quentintruffy/persona-fivem/refs/heads/master/server.cfg
+    path: ./server.cfg
