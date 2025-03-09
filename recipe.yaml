@@ -4,14 +4,21 @@ version: v1.0.0
 description: PersonaCore Description
 
 tasks:
-  # Download default CFX resources
-  - action: download_github
-    src: https://github.com/quentintruffy/persona-fivem-data.git
-    ref: master
-    subpath: resources
+  - action: download_file
+    url: https://github.com/quentintruffy/persona-fivem-data/archive/refs/tags/latest.zip
+    path: ./tmp/latest.zip
+
+  - action: unzip
+    src: ./tmp/latest.zip
+    dest: ./tmp
+
+  - action: move_path
+    src: ./tmp/persona-fivem-data-latest/resources
     dest: ./resources
 
-  # Download default server.cfg for RedM
   - action: download_file
     url: https://raw.githubusercontent.com/quentintruffy/persona-fivem/refs/heads/master/server.cfg
     path: ./server.cfg
+
+  - action: remove_path
+    path: ./tmp
